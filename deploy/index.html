@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Get papieżed</title>
+		<style>
+			.center {
+				text-align: center;
+				margin: auto;
+				width: 50%;
+				padding: 10px;
+			}
+
+			.invisible {
+				display: none;
+			}
+		</style>
+	</head>
+	<body onload="checkDay()">
+		<main class="center">
+			<div id="piomteksobota" class="invisible">
+				<h1>PIWO PIWO PIWO</h1>
+				<br />
+				<video loop controls id="video">
+					<source src="/assets/weed.mp4" type="video/mp4" />
+				</video>
+			</div>
+			<div id="papiez" class="invisible">
+				<video loop controls id="papiezVideo">
+					<source src="/assets/bejb.webm" type="video/mp4" />
+				</video>
+			</div>
+		</main>
+	</body>
+
+	<script>
+		window.onload = checkDay();
+
+		function checkDay() {
+			const day = new Date().getDay();
+			const hour = new Date().getHours();
+			if ((day === 5 || day === 6) && hour >= 18) {
+				document.title = "PIWO PIWO PIWO";
+				document.getElementById("piomteksobota").style = "display: block";
+				document.getElementById("video").play();
+			} else {
+				document.getElementById("papiez").style = "display: block";
+				document.getElementById("papiezVideo").play();
+			}
+		}
+	</script>
+</html>
